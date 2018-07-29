@@ -28,7 +28,7 @@ public class AdditionalMembersPage extends BasePage<AdditionalMembersPage> {
         return this;
     }
 
-    @Step("click \"No Thanks\" button")
+    @Step("Click \"No Thanks\" button")
     public MembershipOptionPage clickNoThanksButton() {
         $$(ADDITIONAL_MEMBERSHIP_BTNS).get(1).click();
         return new MembershipOptionPage();

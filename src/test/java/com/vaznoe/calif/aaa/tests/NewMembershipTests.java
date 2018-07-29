@@ -38,13 +38,16 @@ public class NewMembershipTests extends BaseTest {
     private String newMembershipSetUp(String gender) {
         return homePage().verifyHomePageOpened()
                 .clickJoinAAAButton()
+
                 .verifyStartNewMembershipPageOpened()
                 .clickGetStartedButton()
+
                 .verifyMemberInfoPageOpened()
                 .fillInputFirstName(firstName)
                 .fillInputLastName(lastName)
                 .selectGender(gender)
                 .clickSaveButton()
+
                 .verifyContactDetailsPageOpened()
                 .fillInputAddress(address)
                 .fillInputCity(city)
@@ -55,14 +58,19 @@ public class NewMembershipTests extends BaseTest {
                 .fillInputPhoneNumber(phoneNumber)
                 .selectIsThisCellPhone("No")
                 .clickNextButton()
+
                 .verifyAdditionalMembersPageOpened()
                 .clickNoThanksButton()
+
                 .verifyMembersOptionsPageOpened()
                 .clickNoThanksButton()
+
                 .verifyFinalTotalAndSubmitFormPageOpened()
                 .clickProceedToCheckoutButton()
+
                 .verifyPaymentPageOpened()
                 .clickSubmitPaymentButton()
+
                 .verifyErrorMessageIsDisplayed();
     }
 }

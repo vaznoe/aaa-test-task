@@ -1,4 +1,7 @@
 # AAA-test-task
+Selenide/Selenium | Java | TestNG | Maven | Allure Report
+
+[Selenide] (http://selenide.org/documentation.html), [Allure] (https://github.com/allure-framework/allure2)
  
 ```bash
 brew install chromedriver
@@ -6,10 +9,7 @@ brew install chromedriver
 ```bash
 brew install geckodriver
 ```
-Test run:
-```bash
-mvn clean test -Dbrowser=${browser} 
-```
+
 Test run chrome:
 ```bash
 mvn clean test -Dbrowser=chrome
