@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.vaznoe.calif</groupId>
+    <artifactId>aaa-test-task</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Test automation task</description>
+
+    <developers>
+        <developer>
+            <name>Tatiana Galushko</name>
+            <email>vsp015@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <browser>chrome</browser>
+        <environment>prod</environment>
+        <selenide.timeout>30000</selenide.timeout>
+
+        <!-- Configuration -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Dependencies Versions -->
+        <compiler.version>1.8</compiler.version>
+        <testng.version>6.14.3</testng.version>
+        <selenide.version>4.12.1</selenide.version>
+        <selenium.version>3.12.0</selenium.version>
+        <jsoup.version>1.11.2</jsoup.version>
+        <log4j.version>1.2.17</log4j.version>
+        <allure.version>2.7.0</allure.version>
+        <yaml.config.version>1.17</yaml.config.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <!--Plugin Versions-->
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+        <allure-maven-plugin.version>2.2</allure-maven-plugin.version>
+        <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+
+        <!-- Directory Properties -->
+        <resource-test.directory>${project.basedir}/src/test/resources</resource-test.directory>
+        <allure-results.directory>${project.build.directory}/allure-results</allure-results.directory>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${yaml.config.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${compiler.version}</source>
+                    <target>${compiler.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <environment>${environment}</environment>
+                        <selenide.timeout>${selenide.timeout}</selenide.timeout>
+                    </systemPropertyVariables>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                    </properties>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${allure-results.directory}</value>
+                        </property>
+                    </systemProperties>
+                    <argLine>
+                        -noverify
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <suiteXmlFiles>
+                        <file>${project.basedir}/suite/regression.xml</file>
+                    </suiteXmlFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <reportVersion>2.3.1</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

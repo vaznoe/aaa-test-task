@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Web test suite">
+    <test name="Regression tests" enabled="true" preserve-order="true">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.vaznoe.calif.aaa.tests.NewMembershipTests"/>
+        </classes>
+    </test>
+</suite>
