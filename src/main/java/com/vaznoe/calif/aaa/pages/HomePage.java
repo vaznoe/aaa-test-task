@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.vaznoe.calif.aaa.apps.utils.properties.SystemProperty.BASE_URL;
 import static org.openqa.selenium.By.linkText;
 
 /**
@@ -28,7 +27,7 @@ public class HomePage extends BasePage<HomePage> {
         return this;
     }
 
-    @Step("click \"JOIN AAA\" button")
+    @Step("Click \"JOIN AAA\" button")
     public CreateNewMembershipPage clickJoinAAAButton() {
         $(linkText("JOIN AAA")).click();
         return new CreateNewMembershipPage();

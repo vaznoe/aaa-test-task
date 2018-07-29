@@ -28,7 +28,7 @@ public class MembershipOptionPage extends BasePage<MembershipOptionPage> {
         return this;
     }
 
-    @Step("click \"No Thanks\" button")
+    @Step("Click \"No Thanks\" button")
     public FinalTotalAndSubmitFormPage clickNoThanksButton() {
         $$(EXTRACOVER_OPTION_BTNS).get(1).click();
         return new FinalTotalAndSubmitFormPage();
