@@ -11,8 +11,8 @@ Here is the exercise:
  Verify error appears “Payment Method is required.”
  Make automated test that covers at least 2 users: male and female`
 
-######==================================================
-Selenide/Selenium | Java | TestNG | Maven | Allure Report
+
+======= Selenide/Selenium | Java | TestNG | Maven | Allure Report ========
 
 Selenide - (http://selenide.org/documentation.html), Allure - (https://github.com/allure-framework/allure2)
  
