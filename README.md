@@ -1,7 +1,7 @@
 # AAA-test-task
 Selenide/Selenium | Java | TestNG | Maven | Allure Report
 
-[Selenide] (http://selenide.org/documentation.html), [Allure] (https://github.com/allure-framework/allure2)
+Selenide - (http://selenide.org/documentation.html), Allure - (https://github.com/allure-framework/allure2)
  
 ```bash
 brew install chromedriver
