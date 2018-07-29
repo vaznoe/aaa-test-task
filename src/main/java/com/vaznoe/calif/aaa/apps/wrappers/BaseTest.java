@@ -26,7 +26,6 @@ import static com.codeborne.selenide.WebDriverRunner.addListener;
 })
 public abstract class BaseTest implements TestCase, Config {
 
-    private static final ThreadLocal<Map<GenericPage, BasePage>> PAGES = ThreadLocal.withInitial(() -> new HashMap<>());
     public static String userAgent;
     private String testName;
 
@@ -38,16 +37,22 @@ public abstract class BaseTest implements TestCase, Config {
     @BeforeMethod(alwaysRun = true)
     public void configureBrowserBeforeTest(Method testMethod) {
         this.testName = testMethod.getName();
-        runLocalTest();
-    }
-
-    private void runLocalTest() {
         getDriver().manage().window().maximize();
     }
 
+    /**
+     * Returns the webdriver object for that given thread
+     *
+     * @return - WebDriver object
+     */
     public static WebDriver getDriver() {
         return WebDriverRunner.getWebDriver();
     }
+
+    /**
+     * Thread-safe container in which are stored values as page instances
+     */
+    private static final ThreadLocal<Map<GenericPage, BasePage>> PAGES = ThreadLocal.withInitial(() -> new HashMap<>());
 
     public static Map<GenericPage, BasePage> getPages() {
         return PAGES.get();
@@ -64,6 +69,9 @@ public abstract class BaseTest implements TestCase, Config {
         Selenide.close();
     }
 
+    /**
+     * Cleaning collection Pages
+     */
     private void cleanUpPages() {
         PAGES.remove();
     }
