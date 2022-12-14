@@ -33,7 +33,7 @@
         <jsoup.version>1.11.2</jsoup.version>
         <log4j.version>1.2.17</log4j.version>
         <allure.version>2.7.0</allure.version>
-        <yaml.config.version>1.17</yaml.config.version>
+        <yaml.config.version>1.32</yaml.config.version>
         <aspectj.version>1.8.10</aspectj.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <!--Plugin Versions-->
